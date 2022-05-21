@@ -43,9 +43,8 @@ export class Forms extends React.Component{
           };
 
           this.setState(state => ({
-            textItems: state.textItems.concat(newItem),
-            value: "",
-                  
+            textItems: state.textItems.concat(newItem), //Добавление элеентов в массив должно происходить при помощи метода concat потому, что тот возвращает новый массив, а не видоизменяет текущий
+            value: "",                  
           }));
     }
 
@@ -53,13 +52,20 @@ export class Forms extends React.Component{
         localStorage.clear();
     }
 
+    delItem = (id)=>{
+        console.log(this.props.text)
+        this.setState(prevState=>({
+            textItems: this.props.text.filter(el => el.id != id)
+        }))
+    }
+   
+
     render(){
         return  (
             <form onSubmit={this.handleSubmit} className="add-list">                
                 <MyNote text={this.state.textItems}/>
-                <label>
-                    Notes:
-                    <input type="text" name="name" onChange={this.handleChange} value={this.state.value}/>
+                <label>                    
+                    <input type="text" name="name" className="all-input" onChange={this.handleChange} value={this.state.value}/>
                 </label>
                 <input type="submit" value="Note down" onClick={this.noteDown}/>
                 <input type="submit" value="Clear list" onClick={this.clearList}/>
@@ -69,10 +75,13 @@ export class Forms extends React.Component{
 }
 
 class MyNote extends React.Component{
+    constructor(props){
+        super(props)
+    }
     render(){      
         return (
             <div>{this.props.text.map(item => (
-                <p>{item.text}</p>                
+                <p key={item.id} className="list-item">{item.text} <span key={item.id} onClick={this.delItem} className="del-item"></span></p>                
               ))}</div>
         )        
     }

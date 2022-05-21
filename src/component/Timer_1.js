@@ -12,7 +12,7 @@ export class Timer_1 extends React.Component {
   }
 
   timerStrart() {
-    this.timerID = setInterval(() => this.increment(), 100);
+    this.timerID = setInterval(() => this.increment(), 1000);
   }
 
   timerStop = () => {
