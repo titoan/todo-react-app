@@ -63,3 +63,7 @@ form.add-list label input{
 form.add-list input[type="submit"]{
   margin-right: 5px;
 }
+
+.timer-box{
+  width: 50px;
+}
