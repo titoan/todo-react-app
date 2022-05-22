@@ -52,34 +52,34 @@ class Time extends React.Component {
   render() {
     if(this.props.min <= 9 && this.props.sec <= 9){
         return(
-            <div className="container d_flex jc_center">
+            <div className="container d_flex jc_center time-container">
                     <div className="timer-box">0{this.props.min}</div>
-                    <div className="margin_10">:</div>
+                    {/* <div className="margin_10">:</div> */}
                     <div className="timer-box">0{this.props.sec}</div>
                 </div>
         )
     }
     else if (this.props.min <= 9){
         return(
-            <div className="container d_flex jc_center">
+            <div className="container d_flex jc_center time-container">
                     <div className="timer-box">0{this.props.min}</div>
-                    <div className="margin_10">:</div>
+                    {/* <div className="margin_10">:</div> */}
                     <div className="timer-box">{this.props.sec}</div>
                 </div>
         )
     }else if(this.props.min > 9 && this.props.sec <= 9){
         return(
-            <div className="container d_flex jc_center">
+            <div className="container d_flex jc_center time-container">
                     <div className="timer-box">{this.props.min}</div>
-                    <div className="margin_10">:</div>
+                    {/* <div className="margin_10">:</div> */}
                     <div className="timer-box">0{this.props.sec}</div>
                 </div>
         )
     }else{
         return(
-            <div className="container d_flex jc_center">
+            <div className="container d_flex jc_center time-container">
                     <div className="timer-box">{this.props.min}</div>
-                    <div className="margin_10">:</div>
+                    {/* <div className="margin_10">:</div> */}
                     <div className="timer-box">{this.props.sec}</div>
                 </div>
         )

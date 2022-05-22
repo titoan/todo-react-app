@@ -52,12 +52,7 @@ export class Forms extends React.Component{
         localStorage.clear();
     }
 
-    delItem = (id)=>{
-        console.log(this.props.text)
-        this.setState(prevState=>({
-            textItems: this.props.text.filter(el => el.id != id)
-        }))
-    }
+
    
 
     render(){
@@ -74,16 +69,51 @@ export class Forms extends React.Component{
     }
 }
 
-class MyNote extends React.Component{
+// class MyNote extends React.Component{
+//     constructor(props){
+//         super(props)
+//     }
+
+//     delItem = (e, id)=>{
+//         console.log(this.props.text)
+//         this.setState({
+//             textItems: 0
+//         })
+//     }
+
+//     render(){      
+//         return (
+//             <div>{this.props.text.map(item => (
+//                 <p key={item.id} className="list-item">
+//                     {item.text} 
+//                     <span onClick={this.delItem} className="del-item"></span>
+//                     </p>                
+//               ))}</div>
+//         )        
+//     }
+// }
+
+
+class MyNote extends Forms{
     constructor(props){
         super(props)
     }
+
+    delItem = (e, id)=>{
+        console.log(this.props.text)
+        this.setState({
+            textItems: 0
+        })
+    }
+
     render(){      
         return (
             <div>{this.props.text.map(item => (
-                <p key={item.id} className="list-item">{item.text} <span key={item.id} onClick={this.delItem} className="del-item"></span></p>                
+                <p key={item.id} className="list-item">
+                    {item.text} 
+                    <span onClick={this.delItem} className="del-item"></span>
+                    </p>                
               ))}</div>
         )        
     }
 }
-
