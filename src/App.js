@@ -9,6 +9,7 @@ import { Clock } from './component/Clock';
 import {Timer_1} from './component/Timer_1';
 import {Forms} from './component/Forms';
 import {TodoApp} from './component/TodoApp';
+import {ToDo} from './component/Forms'
 
 
 // const textItems = ['deah','to','all', 'of', 'us'];
@@ -31,7 +32,8 @@ class App extends React.Component{
         {/* <TextList items={this.state.textItems}/> */}
         <Clock/>
         <Timer_1/>
-        <Forms />
+        {/* <Forms /> */}
+        {<ToDo/>}
         {/* <TodoApp /> */}
         
       </header>
