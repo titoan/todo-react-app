@@ -1,6 +1,6 @@
 import React from "react";
 
-export class Forms extends React.Component{
+export class ToDo extends React.Component{
     constructor(props){
         super(props)
         this.state={
@@ -9,18 +9,19 @@ export class Forms extends React.Component{
         }        
         this.handleChange = this.handleChange.bind(this);        
         this.noteDown = this.noteDown.bind(this);        
-        this.saveList = this.saveList.bind(this);        
+        this.saveList = this.saveList.bind(this);
+        this.delItem = this.delItem.bind(this);
     }
 
     componentDidUpdate(){
         this.saveList()
     }
 
-    componentDidMount(){
+    componentDidMount(){        
         if(localStorage.getItem("list")){
-            const list = JSON.parse(localStorage.getItem("list"))
+            const list = JSON.parse(localStorage.getItem("list"))            
             this.setState({textItems: list})
-        }        
+        }
     }
 
     saveList(){        
@@ -28,11 +29,11 @@ export class Forms extends React.Component{
     }
 
     handleChange(event){
-        this.setState({value: event.target.value})    
+        this.setState({value: event.target.value})
     }
 
     noteDown(e){
-        e.preventDefault();
+        e.preventDefault();        
         if (this.state.value.length === 0) {            
             return;
           }
@@ -48,70 +49,54 @@ export class Forms extends React.Component{
           }));
     }
 
+    delItem(e){      
+        let listItems = JSON.parse(localStorage.getItem("list"))
+        listItems = listItems.filter(el=> el.id != e.target.id)          
+        this.setState({
+            textItems: listItems,
+            value: ""
+        })
+    }
+
     clearList(){
         localStorage.clear();
     }
 
+    render(){
+        return <Forms textItems={this.state.textItems} value={this.state.value} noteDown={this.noteDown} handleChange={this.handleChange} delItem={this.delItem}/>
+    }
+}
 
-   
+class Forms extends React.Component{
+    constructor(props){
+        super(props)       
+    }
 
     render(){
         return  (
             <form onSubmit={this.handleSubmit} className="add-list">                
-                <MyNote text={this.state.textItems}/>
+                <MyNote text={this.props.textItems} delItem={this.props.delItem}/> 
                 <label>                    
-                    <input type="text" name="name" className="all-input" onChange={this.handleChange} value={this.state.value}/>
+                    <input type="text" name="name" className="all-input" onChange={this.props.handleChange} />
                 </label>
-                <input type="submit" value="Note down" onClick={this.noteDown}/>
+                <input type="submit" value="Note down" onClick={this.props.noteDown}/>
                 <input type="submit" value="Clear list" onClick={this.clearList}/>
             </form>
         )
     }
 }
 
-// class MyNote extends React.Component{
-//     constructor(props){
-//         super(props)
-//     }
-
-//     delItem = (e, id)=>{
-//         console.log(this.props.text)
-//         this.setState({
-//             textItems: 0
-//         })
-//     }
-
-//     render(){      
-//         return (
-//             <div>{this.props.text.map(item => (
-//                 <p key={item.id} className="list-item">
-//                     {item.text} 
-//                     <span onClick={this.delItem} className="del-item"></span>
-//                     </p>                
-//               ))}</div>
-//         )        
-//     }
-// }
-
-
-class MyNote extends Forms{
+class MyNote extends React.Component{
     constructor(props){
         super(props)
-    }
-
-    delItem = (e, id)=>{
-        console.log(this.props.text)
-        this.setState({
-            textItems: 0
-        })
-    }
+    } 
 
     render(){      
         return (
             <div>{this.props.text.map(item => (
                 <p key={item.id} className="list-item">
                     {item.text} 
-                    <span onClick={this.delItem} className="del-item"></span>
+                    <span onClick={this.props.delItem} id={item.id} className="del-item"></span>
                     </p>                
               ))}</div>
         )        
