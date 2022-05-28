@@ -47,6 +47,11 @@ form.add-list input {
 form.add-list label input {
   margin-left: 5px;
   margin-right: 5px;
+  border: none;
+  border-bottom: 2px solid rgb(11, 127, 131);
+  background-color: #282c34;
+  font-size: 18px;
+  color: rgb(11, 127, 131);
 }
 
 form.add-list input[type="submit"] {
@@ -97,21 +102,21 @@ form.add-list input[type="submit"] {
   border: 1px solid rgb(11, 127, 131);
   position: relative;
   border-radius: 10px;
-  margin: 8px 0;
+  margin: 8px auto;
   font-size: 18px;
   padding: 6px 30px 6px 10px;
   box-sizing: border-box;
   max-width: 300px;
-  word-wrap:break-word;
+  word-wrap: break-word;
   text-align: left;
 }
 
 .del-item {
-  position: absolute; 
+  position: absolute;
   width: 17px;
   height: 17px;
   top: 5px;
-  right: 5px; 
+  right: 5px;
   background-image: url(../src/img/close.svg);
   background-size: contain;
   background-repeat: no-repeat;
