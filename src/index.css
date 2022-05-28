@@ -36,10 +36,6 @@ ul {
   justify-content: center;
 }
 
-.margin_10 {
-  margin: 0 10px;
-}
-
 .fd_column {
   flex-direction: column;
 }
@@ -59,6 +55,10 @@ form.add-list input[type="submit"] {
 
 /* Timer */
 
+.delimitre {
+  margin: 0 5px;
+}
+
 .timer_1 {
   font-size: 42px;
   font-weight: 600;
@@ -68,19 +68,19 @@ form.add-list input[type="submit"] {
 .time-container {
   position: relative;
   height: 90px;
-  width: 90px; 
+  width: 90px;
   border-radius: 25px;
 }
 
 .timer-box {
-  width: 50px;
-  position: absolute;
-  font-size: 68px;
+  /* width: 50px; */
+  /* position: absolute; */
+  font-size: 60px;
   font-weight: 100;
   line-height: 54px;
 }
 
-.timer-box:first-child{
+/* .timer-box:first-child{
   top: 5px;
   left: 10px;  
 }
@@ -89,7 +89,7 @@ form.add-list input[type="submit"] {
   bottom: 5px;
   right: 10px; 
   color: rgb(131, 11, 81);
-}
+} */
 
 /* List */
 
@@ -98,7 +98,11 @@ form.add-list input[type="submit"] {
   position: relative;
   border-radius: 10px;
   margin: 8px 0;
-  font-size: 24px;
+  font-size: 18px;
+  padding: 6px 45px;
+  box-sizing: border-box;
+  max-width: 300px;
+  word-wrap:break-word;
 }
 
 .del-item {

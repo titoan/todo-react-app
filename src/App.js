@@ -30,6 +30,7 @@ class App extends React.Component{
          {/* <ClickCounter increment={this.state.val}/> */}
          {/* <ul>{elems}</ul> */}
         {/* <TextList items={this.state.textItems}/> */}
+        {/* <TextList items={['deah','to','all', 'of', 'us']}/> */}
         <Clock/>
         <Timer_1/>
         {/* <Forms /> */}

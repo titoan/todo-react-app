@@ -16,7 +16,7 @@ export class ClickCounter extends React.Component{
     }
 
     // Синтаксис общедоступных полей классов
-    // Для обращения к this метода написанны таким образом требуется привзяка this через bind в теле constructor
+    // Для обращения к this метода написанны таким образом не требуется привзяка this через bind в теле constructor
     // handleClick = (e)=>{        
     //     console.log(this);
     // }

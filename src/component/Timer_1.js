@@ -11,7 +11,7 @@ export class Timer_1 extends React.Component {
     this.timerStrart = this.timerStrart.bind(this);
   }
 
-  timerStrart() {
+  timerStrart() {    
     this.timerID = setInterval(() => this.increment(), 1000);
   }
 
@@ -33,6 +33,7 @@ export class Timer_1 extends React.Component {
       this.setState({ sec: 0 });
     }
   }
+  
 
   render() {
     return (
@@ -43,10 +44,26 @@ export class Timer_1 extends React.Component {
           <button onClick={this.timerStop}>Stop</button>
           <button onClick={this.timerClear}>Clear</button>
         </div>
+        {/* <TimerButtons timerStart={this.timerStrart}/> */}
       </div>
     );
   }
 }
+
+// class TimerButtons extends React.Component{
+//   constructor(props){
+//     super(props)
+//   }
+//   render(){
+//     return(
+//       <div className="container">
+//           <button onClick={this.props.timerStrart}>Start</button>
+//           <button onClick={this.timerStop}>Stop</button>
+//           <button onClick={this.timerClear}>Clear</button>
+//         </div>
+//     )
+//   }
+// }
 
 class Time extends React.Component {
   render() {
@@ -54,7 +71,7 @@ class Time extends React.Component {
         return(
             <div className="container d_flex jc_center time-container">
                     <div className="timer-box">0{this.props.min}</div>
-                    {/* <div className="margin_10">:</div> */}
+                    <div className="delimitre">:</div>
                     <div className="timer-box">0{this.props.sec}</div>
                 </div>
         )
@@ -63,7 +80,7 @@ class Time extends React.Component {
         return(
             <div className="container d_flex jc_center time-container">
                     <div className="timer-box">0{this.props.min}</div>
-                    {/* <div className="margin_10">:</div> */}
+                    <div className="delimitre">:</div>
                     <div className="timer-box">{this.props.sec}</div>
                 </div>
         )
@@ -71,7 +88,7 @@ class Time extends React.Component {
         return(
             <div className="container d_flex jc_center time-container">
                     <div className="timer-box">{this.props.min}</div>
-                    {/* <div className="margin_10">:</div> */}
+                    <div className="delimitre">:</div>
                     <div className="timer-box">0{this.props.sec}</div>
                 </div>
         )
@@ -79,7 +96,7 @@ class Time extends React.Component {
         return(
             <div className="container d_flex jc_center time-container">
                     <div className="timer-box">{this.props.min}</div>
-                    {/* <div className="margin_10">:</div> */}
+                    <div className="delimitre">:</div>
                     <div className="timer-box">{this.props.sec}</div>
                 </div>
         )

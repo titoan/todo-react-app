@@ -44,7 +44,7 @@ export class ToDo extends React.Component{
           };
 
           this.setState(state => ({
-            textItems: state.textItems.concat(newItem), //Добавление элеентов в массив должно происходить при помощи метода concat потому, что тот возвращает новый массив, а не видоизменяет текущий
+            textItems: state.textItems.concat(newItem), //Добавление элементов в массив должно происходить при помощи метода concat потому, что тот возвращает новый массив, а не видоизменяет текущий
             value: "",                  
           }));
     }
@@ -77,7 +77,7 @@ class Forms extends React.Component{
             <form onSubmit={this.handleSubmit} className="add-list">                
                 <MyNote text={this.props.textItems} delItem={this.props.delItem}/> 
                 <label>                    
-                    <input type="text" name="name" className="all-input" onChange={this.props.handleChange} />
+                    <input type="text" name="name" className="all-input" value={this.props.value} onChange={this.props.handleChange} />
                 </label>
                 <input type="submit" value="Note down" onClick={this.props.noteDown}/>
                 <input type="submit" value="Clear list" onClick={this.clearList}/>
