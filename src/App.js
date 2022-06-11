@@ -1,15 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
+import { Clock } from './component/Clock';
+import {Timer_1} from './component/Timer_1';
+import {ToDo} from './component/Forms'
 import userEvent from '@testing-library/user-event';
 import {ClickCounter} from './component/ClickCounter';
 import {TextList} from './component/TextList';
-import { Clock } from './component/Clock';
 // import {StateExamp} from './component/States'
-import {Timer_1} from './component/Timer_1';
 import {Forms} from './component/Forms';
 import {TodoApp} from './component/TodoApp';
-import {ToDo} from './component/Forms'
 
 
 // const textItems = ['deah','to','all', 'of', 'us'];
@@ -33,10 +33,7 @@ class App extends React.Component{
         {/* <TextList items={['deah','to','all', 'of', 'us']}/> */}
         <Clock/>
         <Timer_1/>
-        {/* <Forms /> */}
-        {<ToDo/>}
-        {/* <TodoApp /> */}
-        
+        {<ToDo/>}        
       </header>
     </div>
     )
