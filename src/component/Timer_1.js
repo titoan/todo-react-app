@@ -4,7 +4,7 @@ export class Timer_1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hour: 0,
+      hour: 5,
       min: 59,
       sec: 0,
     };
@@ -21,7 +21,7 @@ export class Timer_1 extends React.Component {
   };
 
   timerClear = () => {
-    this.setState({ min: 0, sec: 0 });
+    this.setState({ min: 0, sec: 0, hour:0});
   };
 
   increment() {
