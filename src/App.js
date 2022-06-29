@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Clock } from './component/Clock';
 import {Timer_1} from './component/Timer_1';
 import {ToDo} from './component/Forms'
+import {Radio} from './component/Radio'
 
 class App extends React.Component{
   constructor(props){
@@ -13,10 +14,12 @@ class App extends React.Component{
     return(
       <div className="App">
       <header className="App-header">     
-        <Clock/>
+        {/* <Clock/>
         <Timer_1/>
-        <ToDo/>        
+        <ToDo/>         */}
+       
       </header>
+      <Radio />
     </div>
     ) 
   }
