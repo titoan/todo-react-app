@@ -4,8 +4,8 @@ export class Timer_1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hour: 5,
-      min: 59,
+      hour: 0,
+      min: 0,
       sec: 0,
     };
 
