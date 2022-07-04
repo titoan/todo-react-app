@@ -25,14 +25,8 @@ export class Radio extends React.Component {
   render() {
       return (
           <div className="radio-container">
-          <SelectStation stations={this.state.radioStations} changeFunc={this.chooseStation} />;
-        <object
-          type="text/html"
-          data={this.state.currentStation}
-          width="100%"
-          height="100%"
-          border="0"
-        ></object>
+          <SelectStation stations={this.state.radioStations} changeFunc={this.chooseStation} />;     
+        <object type="text/html" data={this.state.currentStation} width="100%" height="100%" border="0" title="radio page"></object>
       </div>
     );
   }

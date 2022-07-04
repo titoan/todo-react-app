@@ -1,27 +1,30 @@
 import React from "react";
 
-export class Timer_1 extends React.Component {
+export class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       hour: 0,
       min: 0,
       sec: 0,
+      stopTimeTrac: `00:00:00`,
     };
 
     this.timerStrart = this.timerStrart.bind(this);
   }
 
   timerStrart() {
-    this.timerID = setInterval(() => this.increment(), 1000);
+    this.timerID = setInterval(() => this.increment(), 100);
   }
 
   timerStop = () => {
-    clearInterval(this.timerID);
+    clearInterval(this.timerID);    
+   
+    this.props.updateData(this.state.stopTimeTrac)
   };
 
   timerClear = () => {
-    this.setState({ min: 0, sec: 0, hour:0});
+    this.setState({ min: 0, sec: 0, hour: 0 });
   };
 
   increment() {
@@ -34,16 +37,22 @@ export class Timer_1 extends React.Component {
       this.setState({ sec: 0 });
     }
 
-    if (this.state.min == 60) {
+    if (this.state.min === 60) {
       this.setState({ hour: this.state.hour + 1 });
       this.setState({ min: 0 });
     }
+
+    this.setState({ stopTimeTrac: `${this.state.hour}:${this.state.min}:${this.state.sec}`});
   }
 
   render() {
     return (
       <div className="container d_flex fd_column jc_center timer_1">
-        <Time sec={this.state.sec} min={this.state.min} hour={this.state.hour} />
+        <Time
+          sec={this.state.sec}
+          min={this.state.min}
+          hour={this.state.hour}
+        />
         <div className="container">
           <button onClick={this.timerStrart}>Start</button>
           <button onClick={this.timerStop}>Stop</button>
